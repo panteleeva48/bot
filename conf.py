@@ -1,3 +1,0 @@
-TOKEN = "372823738:AAHXL0_D34JHJdt0AAlMPPPMJH38ywlyZOg"
-WEBHOOK_HOST = 'panteleeva.pythonanywhere.com'
-WEBHOOK_PORT = '443'  
