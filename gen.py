@@ -35,7 +35,6 @@ def list_words():# делает словарь из частей речи и л�
     w = file('/home/panteleeva/mysite/words.txt')
     w = re.sub('[0-9]','',w)
     w = re.sub('\t','',w)
-    w = re.sub('[A-Za-z]','',w)
     list_w = w.split('\n')
     list_l_pos = []
     for w in list_w:
