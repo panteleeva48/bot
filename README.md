@@ -7,7 +7,7 @@
 gen.py - программа
 
 
-words.txt - список слов из НКРЯ (но не полный - на pythonanywhere стоит полный)
+words.txt - список слов из НКРЯ (но не полный - на pythonanywhere стоит полный - я его чистила)
 
 
 @generation_sent_bot
