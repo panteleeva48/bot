@@ -11,3 +11,7 @@ words.txt - список слов из НКРЯ (но не полный - на p
 
 
 @generation_sent_bot
+
+#ФИНАЛЬНЫЙ ПРОЕКТ
+
+@color_typology_bot
