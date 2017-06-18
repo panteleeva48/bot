@@ -171,7 +171,7 @@ def inform(message):
     elif len(dict_data) == 1 and dict_data[message.chat.id][0] != '':
         bot.send_message(message.chat.id, "Only 1 person took part in this research. His language is {}. Call the command /fileget to get the file with all answers.".format(get_key(lang_dict, 1)))
     else:
-        bot.send_message(message.chat.id, "{} people took part in this research. Their languages are:\r\n{}.\r\nCall the command /fileget to get the file with all answers.".format(len(dict_data),string))
+        bot.send_message(message.chat.id, "{} people took part in this research. Their languages are:\r\n{}\r\nCall the command /fileget to get the file with all answers.".format(len(dict_data),string))
     if len(mass) != 0 and len(dict_data) != 0 and dict_data[message.chat.id][mass[-1]] == '':
         bot.send_message(message.chat.id, dict_r_rev[mass[-1]])
     elif len(mass) == 0 and len(dict_data) != 0:
@@ -182,20 +182,7 @@ def inform(message):
 
 @bot.message_handler(commands=['start'])# этот обработчик запускает функцию send_welcome, когда пользователь отправляет команду /help
 def send_welcome(message):
-    bot.send_message(message.chat.id, "Hello! This bot asks you about the color terms in your native language. Please answer the questions.\r\nCall the command /begin to start.\r\nIf you need help, call the command /help.\r\nIf you need overall information, call the command /info.")
-
-
-# In[15]:
-
-@bot.message_handler(commands=['help'])
-def help_user(message):
-    bot.send_message(message.chat.id, "This bot asks you about the color terms in your native language.\r\nIf you need overall information, call the command /info.")
-
-
-# In[16]:
-
-@bot.message_handler(commands=['begin'])# этот обработчик запускает функцию, когда пользователь отправляет команду /start
-def send_first(message):
+    bot.send_message(message.chat.id, "Hello! This bot asks you about the color terms in your native language. Please answer the questions.\r\nIf you need help, call the command /help.\r\nIf you need overall information, call the command /info.")
     if message.chat.id in dict_data:
         bot.send_message(message.chat.id, "You cannot fill in the form once again. Your answers were written down.")
     else:
@@ -203,6 +190,11 @@ def send_first(message):
         id_user = message.chat.id
         dict_data[id_user] = {0:''}#создается значение с новым юзером {user1:{0:'/start'}}
 
+# In[15]:
+
+@bot.message_handler(commands=['help'])
+def help_user(message):
+    bot.send_message(message.chat.id, "This bot asks you about the color terms in your native language.\r\nIf you need overall information, call the command /info.")
 
 # In[17]:
 
@@ -216,14 +208,38 @@ def get_answer(message):
             q_num = random.choice(keys)
         if q_num not in dict_data[id_user]:# если ещё нет ответа на этот вопрос, то спрашивает #3#2#4
             mass.append(q_num)#добавляем в массив номер вопроса [3]#[3,2]#[3,2,4]
-            bot.send_message(message.chat.id, dict_r_rev[q_num])
+            bot.send_message(message.chat.id, "{}/88. {}".format(len(mass),dict_r_rev[q_num]))
             if q_num == 2:
-                photo = open('/home/panteleeva/mysite/eye.jpeg', 'rb')
+                photo = open('/home/panteleeva/mysite/2.jpeg', 'rb')
                 bot.send_photo(id_user, photo)
             if q_num == 11:
-                photo = open('/home/panteleeva/mysite/hair.jpg', 'rb')
+                photo = open('/home/panteleeva/mysite/11.jpg', 'rb')
                 bot.send_photo(id_user, photo)
-            answer = cleaning(message.text)#ans0#ans3#ans2
+            if q_num == 1:
+                photo = open('/home/panteleeva/mysite/1.jpg', 'rb')
+                bot.send_photo(id_user, photo)
+            if q_num == 43:
+                photo = open('/home/panteleeva/mysite/43.jpg', 'rb')
+                bot.send_photo(id_user, photo)
+            if q_num == 69:
+                photo = open('/home/panteleeva/mysite/69.jpg', 'rb')
+                bot.send_photo(id_user, photo)
+            if q_num == 80:
+                photo = open('/home/panteleeva/mysite/80.jpg', 'rb')
+                bot.send_photo(id_user, photo)
+            if q_num == 83:
+                photo = open('/home/panteleeva/mysite/83.jpg', 'rb')
+                bot.send_photo(id_user, photo)
+            if q_num == 65:
+                photo = open('/home/panteleeva/mysite/65.jpg', 'rb')
+                bot.send_photo(id_user, photo)
+            if q_num == 66:
+                photo = open('/home/panteleeva/mysite/66.jpg', 'rb')
+                bot.send_photo(id_user, photo)
+            if q_num == 84:
+                photo = open('/home/panteleeva/mysite/84.jpg', 'rb')
+                bot.send_photo(id_user, photo)
+            answer = cleaning(message.text)#ans0#ans3#squians2
             if len(dict_data[id_user]) == 1:#если пока записан только ответ на 1 вопрос
                 dict_data[id_user][0] = answer#{user1:{0:'ans0'}}
                 dict_data[id_user][q_num] = ''#{user1:{0:'ans0',3:'ans0'}}
