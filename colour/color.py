@@ -208,7 +208,7 @@ def get_answer(message):
             q_num = random.choice(keys)
         if q_num not in dict_data[id_user]:# если ещё нет ответа на этот вопрос, то спрашивает #3#2#4
             mass.append(q_num)#добавляем в массив номер вопроса [3]#[3,2]#[3,2,4]
-            bot.send_message(message.chat.id, "{}/88. {}".format(len(mass),dict_r_rev[q_num]))
+            bot.send_message(message.chat.id, "{}/87. {}".format(len(mass),dict_r_rev[q_num]))
             if q_num == 2:
                 photo = open('/home/panteleeva/mysite/2.jpeg', 'rb')
                 bot.send_photo(id_user, photo)
